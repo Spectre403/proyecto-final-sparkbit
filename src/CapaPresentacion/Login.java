@@ -182,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         List<Usuario> TEST = new CnUsuario().Listar();
 
         Usuario objUsuario = TEST.stream()
-            .filter(u -> u.getDocumento().equals(txtNomUsr.getText()) && u.getClave().equals(pwfTxtContraseña.getText()))
+            .filter(u -> u.getDocumento().equals(txtNomUsr.getText()) && u.getClave().equals(pwfTxtContraseña.getPassword()))
             .findFirst()
             .orElse(null);
 
@@ -194,6 +194,7 @@ public class Login extends javax.swing.JFrame {
         } else {
         JOptionPane.showMessageDialog(this, "No se encontró el usuario", "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
+        System.out.println(objUsuario);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
@@ -252,23 +253,23 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresar;
-    private javax.swing.JLabel lblBienv;
-    private javax.swing.JLabel lblCarrito;
-    private javax.swing.JLabel lblCerrar;
-    private javax.swing.JLabel lblFondosecu;
-    private javax.swing.JLabel lblLogoContr;
-    private javax.swing.JLabel lblLogoSena;
-    private javax.swing.JLabel lblLogoSpackBit;
-    private javax.swing.JLabel lblLogoUsuario;
-    private javax.swing.JLabel lblNomSoftware;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblSigExclam1;
-    private javax.swing.JLabel lblSigExclam2;
-    private javax.swing.JLabel lblTextoIniSes;
-    private javax.swing.JLabel lblUsr;
+    public javax.swing.JButton btnIngresar;
+    public javax.swing.JLabel lblBienv;
+    public javax.swing.JLabel lblCarrito;
+    public javax.swing.JLabel lblCerrar;
+    public javax.swing.JLabel lblFondosecu;
+    public javax.swing.JLabel lblLogoContr;
+    public javax.swing.JLabel lblLogoSena;
+    public javax.swing.JLabel lblLogoSpackBit;
+    public javax.swing.JLabel lblLogoUsuario;
+    public javax.swing.JLabel lblNomSoftware;
+    public javax.swing.JLabel lblPassword;
+    public javax.swing.JLabel lblSigExclam1;
+    public javax.swing.JLabel lblSigExclam2;
+    public javax.swing.JLabel lblTextoIniSes;
+    public javax.swing.JLabel lblUsr;
     private javax.swing.JPanel pnlFondo;
-    private javax.swing.JPasswordField pwfTxtContraseña;
-    private javax.swing.JTextField txtNomUsr;
+    public javax.swing.JPasswordField pwfTxtContraseña;
+    public javax.swing.JTextField txtNomUsr;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,13 +5,16 @@ import java.awt.Dimension;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import capaEntidad.*;
+import desplazable.Desface;
 
 public class Menu extends javax.swing.JFrame {
+    Desface desface;
     
     private static Usuario usuarioActual;
     
     
     public Menu(Usuario objUsuario) {
+        desface = new Desface();
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(new Dimension(1321, 800));
@@ -31,9 +34,8 @@ public class Menu extends javax.swing.JFrame {
         pnlFondo = new javax.swing.JPanel();
         lblNomUsr = new javax.swing.JLabel();
         lblIdntUsr = new javax.swing.JLabel();
-        lblMenu = new javax.swing.JLabel();
         lblLogoSpackBit = new javax.swing.JLabel();
-        pnlFondoDashboard = new javax.swing.JPanel();
+        PanelMenu = new javax.swing.JPanel();
         lblLogoSena = new javax.swing.JLabel();
         lblNomSoftware = new javax.swing.JLabel();
         lblUsuarios = new javax.swing.JLabel();
@@ -51,8 +53,9 @@ public class Menu extends javax.swing.JFrame {
         lblAcercaDe = new javax.swing.JLabel();
         lblTextAcercaDe = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        ButonMenu = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
         setUndecorated(true);
         setResizable(false);
@@ -70,14 +73,10 @@ public class Menu extends javax.swing.JFrame {
         lblIdntUsr.setText("Usuario :");
         pnlFondo.add(lblIdntUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, -1, -1));
 
-        lblMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/img/menu.png"))); // NOI18N
-        lblMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pnlFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
-
         lblLogoSpackBit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/img/logoSparkBit 1.png"))); // NOI18N
         pnlFondo.add(lblLogoSpackBit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 710, -1, -1));
 
-        pnlFondoDashboard.setBackground(new java.awt.Color(43, 41, 54));
+        PanelMenu.setBackground(new java.awt.Color(43, 41, 54));
 
         lblLogoSena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/img/logoSena 1.png"))); // NOI18N
 
@@ -145,110 +144,128 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlFondoDashboardLayout = new javax.swing.GroupLayout(pnlFondoDashboard);
-        pnlFondoDashboard.setLayout(pnlFondoDashboardLayout);
-        pnlFondoDashboardLayout.setHorizontalGroup(
-            pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoDashboardLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+        ButonMenu.setBackground(new java.awt.Color(43, 41, 54));
+        ButonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/img/menu.png"))); // NOI18N
+        ButonMenu.setBorder(null);
+        ButonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButonMenuMouseClicked(evt);
+            }
+        });
+        ButonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButonMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
+        PanelMenu.setLayout(PanelMenuLayout);
+        PanelMenuLayout.setHorizontalGroup(
+            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
+                .addGap(0, 102, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
-            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblMantenedor)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextMant))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblUsuarios)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextUsr))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblClientes)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextClient))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblProveedores)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextProveed))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblCompras)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextCompras))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblReportes)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTextReportes))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addComponent(lblAcercaDe)
-                                .addGap(17, 17, 17)
-                                .addComponent(lblTextAcercaDe))))
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblLogoSena)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblMantenedor)
                         .addGap(18, 18, 18)
-                        .addComponent(lblNomSoftware)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblTextMant))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblUsuarios)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTextUsr))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblClientes)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTextClient))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblProveedores)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTextProveed))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblCompras)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTextCompras))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblReportes)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblTextReportes))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addComponent(lblAcercaDe)
+                        .addGap(17, 17, 17)
+                        .addComponent(lblTextAcercaDe))))
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblLogoSena)
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNomSoftware)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButonMenu)
+                        .addContainerGap())))
         );
-        pnlFondoDashboardLayout.setVerticalGroup(
-            pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+        PanelMenuLayout.setVerticalGroup(
+            PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMenuLayout.createSequentialGroup()
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
                         .addGap(408, 408, 408)
                         .addComponent(lblCompras))
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(lblLogoSena))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(lblNomSoftware)))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLogoSena)
+                            .addComponent(ButonMenu))
                         .addGap(43, 43, 43)
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsuarios)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(lblTextUsr)))
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(lblMantenedor))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addComponent(lblTextMant)))
                         .addGap(3, 3, 3)
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(lblClientes))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoDashboardLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
                                 .addComponent(lblTextClient)
                                 .addGap(6, 6, 6)))
-                        .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                        .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addComponent(lblProveedores))
-                            .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                            .addGroup(PanelMenuLayout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(lblTextProveed)
                                 .addGap(40, 40, 40)
-                                .addComponent(lblTextCompras)))))
+                                .addComponent(lblTextCompras))))
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(lblNomSoftware)))
                 .addGap(35, 35, 35)
-                .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblReportes)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoDashboardLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMenuLayout.createSequentialGroup()
                         .addComponent(lblTextReportes)
                         .addGap(7, 7, 7)))
-                .addGroup(pnlFondoDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                .addGroup(PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(lblAcercaDe))
-                    .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
+                    .addGroup(PanelMenuLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(lblTextAcercaDe)))
                 .addGap(53, 53, 53)
@@ -256,7 +273,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(133, Short.MAX_VALUE))
         );
 
-        pnlFondo.add(pnlFondoDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 800));
+        pnlFondo.add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 800));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,6 +300,20 @@ public class Menu extends javax.swing.JFrame {
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         
     }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void ButonMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButonMenuMouseClicked
+      
+    }//GEN-LAST:event_ButonMenuMouseClicked
+
+    private void ButonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonMenuActionPerformed
+      if (PanelMenu.getX() == 0) { 
+        // Desplazar hacia la izquierda
+        desface.desplazarIzquierda(PanelMenu, PanelMenu.getX(), -170, 10, 10);
+    } else if (PanelMenu.getX() == -170) { 
+        // Desplazar hacia la derecha
+        desface.desplazarDerecha(PanelMenu, PanelMenu.getX(), 0, 10, 10);
+    }
+    }//GEN-LAST:event_ButonMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,29 +353,29 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel lblAcercaDe;
-    private javax.swing.JLabel lblClientes;
-    private javax.swing.JLabel lblCompras;
+    public javax.swing.JButton ButonMenu;
+    private javax.swing.JPanel PanelMenu;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JLabel lblAcercaDe;
+    public javax.swing.JLabel lblClientes;
+    public javax.swing.JLabel lblCompras;
     private javax.swing.JLabel lblIdntUsr;
-    private javax.swing.JLabel lblLogoSena;
+    public javax.swing.JLabel lblLogoSena;
     private javax.swing.JLabel lblLogoSpackBit;
-    private javax.swing.JLabel lblMantenedor;
-    private javax.swing.JLabel lblMenu;
-    private javax.swing.JLabel lblNomSoftware;
+    public javax.swing.JLabel lblMantenedor;
+    public javax.swing.JLabel lblNomSoftware;
     private javax.swing.JLabel lblNomUsr;
-    private javax.swing.JLabel lblProveedores;
-    private javax.swing.JLabel lblReportes;
-    private javax.swing.JLabel lblTextAcercaDe;
-    private javax.swing.JLabel lblTextClient;
-    private javax.swing.JLabel lblTextCompras;
-    private javax.swing.JLabel lblTextMant;
-    private javax.swing.JLabel lblTextProveed;
-    private javax.swing.JLabel lblTextReportes;
-    private javax.swing.JLabel lblTextUsr;
-    private javax.swing.JLabel lblUsuarios;
+    public javax.swing.JLabel lblProveedores;
+    public javax.swing.JLabel lblReportes;
+    public javax.swing.JLabel lblTextAcercaDe;
+    public javax.swing.JLabel lblTextClient;
+    public javax.swing.JLabel lblTextCompras;
+    public javax.swing.JLabel lblTextMant;
+    public javax.swing.JLabel lblTextProveed;
+    public javax.swing.JLabel lblTextReportes;
+    public javax.swing.JLabel lblTextUsr;
+    public javax.swing.JLabel lblUsuarios;
     private javax.swing.JPanel pnlFondo;
-    private javax.swing.JPanel pnlFondoDashboard;
     // End of variables declaration//GEN-END:variables
 
 }
