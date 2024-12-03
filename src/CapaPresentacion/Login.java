@@ -182,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         List<Usuario> TEST = new CnUsuario().Listar();
 
         Usuario objUsuario = TEST.stream()
-            .filter(u -> u.getDocumento().equals(txtNomUsr.getText()) && u.getClave().equals(pwfTxtContraseña.getPassword()))
+            .filter(u -> u.getDocumento().equals(txtNomUsr.getText()) && u.getClave().equals(pwfTxtContraseña.getText()))
             .findFirst()
             .orElse(null);
 

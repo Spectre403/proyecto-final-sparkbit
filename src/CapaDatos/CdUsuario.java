@@ -11,7 +11,7 @@ import capaEntidad.*;
 public class CdUsuario {
     public List<Usuario> listar() {
         List<Usuario> lista = new ArrayList<>();
-        try (Connection conexion = new Conexion().getConnection()) {
+        try (Connection conexion = new Conexion().GetConnection()) {
             String query = "select IdUsuario,Documento,NombreCompleto,Correo,Clave,Estado from usuario";
             Statement consulta = conexion.createStatement();
             ResultSet usuariosResultSet = consulta.executeQuery(query);
