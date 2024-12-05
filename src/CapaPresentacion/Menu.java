@@ -20,14 +20,7 @@ public class Menu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(new Dimension(1321, 800));
         this.setTitle("Sistema de Ventas");
-        usuario u1 = new usuario();
-         u1.setSize(720, 430);
-         u1.setLocation(0, 0);
-         
-         content.removeAll();
-         content.add(u1,BorderLayout.CENTER);
-         content.revalidate();
-         content.repaint();
+       
        
         btnSalir.putClientProperty("JButton.buttonType", "roundRect");
         
@@ -227,7 +220,7 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(lblClientes)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(pnlFondoDashboardLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lblLogoSena)

@@ -12,7 +12,7 @@ public class CdUsuario {
     public List<Usuario> listar() {
         List<Usuario> lista = new ArrayList<>();
         try (Connection conexion = new Conexion().GetConnection()) {
-            String query = "select IdUsuario,Documento,NombreCompleto,Correo,Clave,Estado from usuario";
+            String query = "select IdUsuario,Documento,NombreCompleto,Correo,Clave,IdRol,Estado from usuario";
             Statement consulta = conexion.createStatement();
             ResultSet usuariosResultSet = consulta.executeQuery(query);
             while (usuariosResultSet.next()) {
@@ -22,6 +22,7 @@ public class CdUsuario {
                 usr.setNombreCompleto(usuariosResultSet.getString("NombreCompleto"));
                 usr.setCorreo(usuariosResultSet.getString("Correo"));
                 usr.setClave(usuariosResultSet.getString("Clave"));
+                
                 //usr.setEstado(usuariosResultSet.getString("Estado"));
                 lista.add(usr);
             }

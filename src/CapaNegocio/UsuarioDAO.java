@@ -13,7 +13,7 @@ public class UsuarioDAO {
 
 
 public boolean RegistrarUsuario(Usuario u1){
- String sql = "INSERT INTO Usuario(Documento,NombreCompleto,Correo,Clave) Values (?,?,?,?)"; 
+ String sql = "INSERT INTO Usuario(Documento,NombreCompleto,Correo,Clave,IdRol) Values (?,?,?,?,?)"; 
     try {
         cn = con.GetConnection();
         ps = cn.prepareStatement(sql);
@@ -21,6 +21,7 @@ public boolean RegistrarUsuario(Usuario u1){
         ps.setString(2, u1.getNombreCompleto());
          ps.setString(3, u1.getCorreo());
           ps.setString(4, u1.getCorreo());
+          ps.setInt(5, u1.getIdRol());
           ps.execute();
           return true;
         
@@ -33,6 +34,26 @@ public boolean RegistrarUsuario(Usuario u1){
         } catch (SQLException e) {
             System.out.println(e.toString());
         }
+    }
+
+    }
+
+
+public boolean RegistrarRol(Rol r1){
+ String sql = "INSERT INTO Rol(IdRol, Descripcion) Values (?,?)"; 
+    try {
+        cn = con.GetConnection();
+        ps = cn.prepareStatement(sql);
+        ps.setInt(1, r1.getIdRol());
+        ps.setString(2, r1.getDescripcion());
+ 
+          ps.execute();
+          return true;
+        
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e.toString());
+        return false;
+   
     }
 
     }
