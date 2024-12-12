@@ -6,20 +6,19 @@ public class Usuario {
     private String nombreCompleto;
     private String correo;
     private String clave;
-    private int IdRol;
-    private Rol objRol; // Referencia a la clase Rol
+    private Rol objRol;
+    // Referencia a la clase Rol
 
     // Constructor vacío
     public Usuario() {}
 
     // Constructor con parámetros
-    public Usuario(int idUsuario, String documento, String nombreCompleto, String correo, String clave, int IdRol, Rol objRol) {
+    public Usuario(int idUsuario, String documento, String nombreCompleto, String correo, String clave, Rol objRol) {
         this.idUsuario = idUsuario;
         this.documento = documento;
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
         this.clave = clave;
-        this.IdRol = IdRol;
         this.objRol = objRol;  
     }
 
@@ -73,12 +72,5 @@ public class Usuario {
         
     }
 
-    public int getIdRol() {
-        return IdRol;
-    }
-
-    public void setIdRol(int IdRol) {
-        this.IdRol = IdRol;
-    }
 }
 
